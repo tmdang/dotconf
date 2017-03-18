@@ -1,4 +1,9 @@
-alias ls='ls --color=always'
+# Check if `ls` support --color, in case of Darwin (macOS)
+ls --color=always >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+    alias ls='ls --color=always'
+fi
+
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
